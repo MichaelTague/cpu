@@ -1,0 +1,25 @@
+50  10    //jmp 10                                   //Program Fibonacci Sequence
+0   40    //constant: 20                             int n1 = -1;
+0   1     //constant: 1                              int n2 = 1;
+0   0     //i = 0                                    for(int i = 0; i < 20; i++) {
+0   -1    //n1 = -1                                      int n3 = n1 + n2;
+0   1     //n2 = 1                                       System.out.println(n3);
+0   0     //n3                                           n1 = n2;
+0   0     //                                             n2 = n3;
+0   0     //                                         }
+1   4     //load i            //i < 20
+11  2     //sub  constant 20
+63  0     //clt
+0   0     //halt              //halt if above not true
+1   5     //load n1           //n3 = n1 + n2
+10  6     //add n2
+2   7     //store n3
+5   0     //print             //print n3
+1   6     //load n2           //n1 = n2
+2   5     //store n1
+1   7     //load n3           //n2 = n3
+2   6     //store n2
+1   4     //load 4
+10  3     //add constant 1
+2   4     //store i
+50  10    //jump to 10        //end of loop

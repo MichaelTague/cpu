@@ -1,0 +1,272 @@
+50  40    //jmp 40
+0   -16777216  //constant: 0xFF000000
+0   16777215   //constant: 0x00FFFFFF
+0   0     //constant: 0
+0   1     //constant: 1
+0   100   //constant: 100
+0   24    //constant: 24
+0   0   
+0   0
+0   0     //constant: halt
+0   1     //constant: load
+0   2     //constant: store
+0   3     //constant: loadi
+0   4     //constant: storei
+0   5     //constant: print
+0   8     //constant: loadprog
+0   10    //constant: add
+0   11    //constant: sub
+0   12    //constant: mul
+0   20    //constant: and
+0   25    //constant: shftr
+0   50    //constant: jmp
+0   62    //constant: cne
+0   63    //constant: clt
+0   65    //constant: cle
+0   99    //constant: stop
+0   0
+0   0
+0   0
+0   0
+0   0
+0   0
+0   0     //iaddress (indirect address)
+0   0     //temp
+0   0     //base
+0   1     //pc = 1
+0   0     //opcode
+0   0     //address
+0   0     //acc
+2   35    //store base
+10  36    //add pc
+2   36    //store pc (now base+orig pc)
+8   35    //load program starting at base
+2   39    //store end of loaded prog in acc
+3   36    //loadi pc (load value pointed to by pc)    //top of loop
+20  3     //and 0x00FFFFFF
+10  35    //add base
+2   38    //store address
+3   36    //loadi pc (load value pointed to by pc)
+20  2     //and 0xFF000000
+25  7     //shftr 24
+2   37    //store opcode
+50  60
+50  60
+50  60
+50  60
+50  60
+50  60
+50  60
+1   37    //load opcode
+11  10    //sub 0 (halt)
+62  0     //cne
+50  150
+1   37    //load opcode
+11  11    //sub 1 (load)
+62  0     //cne
+50  151
+1   37    //load opcode
+11  12    //sub 2 (store)
+62  0     //cne
+50  154
+1   37    //load opcode
+11  13    //sub 3 (loadi)
+62  0     //cne
+50  157
+1   37    //load opcode
+11  14    //sub 4 (storei)
+62  0     //cne
+50  163
+1   37    //load opcode
+11  15    //sub 5 (print)
+62  0     //cne
+50  169
+1   37    //load opcode
+11  16    //sub 8 (loadprog)
+62  0     //cne
+50  172
+1   37    //load opcode
+11  17    //sub 10 (add)
+62  0     //cne
+50  177
+1   37    //load opcode
+11  18    //sub 11 (sub)
+62  0     //cne
+50  181
+1   37    //load opcode
+11  19    //sub 12 (mul)
+62  0     //cne
+50  187
+1   37    //load opcode
+11  20    //sub 20 (and)
+62  0     //cne
+50  191
+1   37    //load opcode
+11  21    //sub 25 (shftr)
+62  0     //cne
+50  195
+1   37    //load opcode
+11  22    //sub 50 (jmp)
+62  0     //cne
+50  201
+1   37    //load opcode
+11  23    //sub 62 (cne)
+62  0     //cne
+50  204
+1   37    //load opcode
+11  24    //sub 63 (clt)
+62  0     //cne
+50  211
+1   37    //load opcode
+11  25    //sub 65 (cle)
+62  0     //cne
+50  218
+1   37    //load opcode
+11  26    //sub 99 (stop)
+62  0     //cne
+50  225
+0   0     //Halt Unknown Inst
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+50  150
+0   0     //halt            //00 halt
+3   38    //loadi @address  //01 load
+2   39    //store acc
+50  250
+1   39    //load acc        //02 store
+4   38    //storei @address 
+50  250
+3   38    //loadi @address  //03 loadi
+10  35    //add base
+2   33    //store iaddress
+3   33    //loadi @iaddress
+2   39    //store acc
+50  250
+3   38    //loadi @address  //04 storei
+10  35    //add base
+2   33    //store iaddress
+1   39    //load acc
+4   33    //storei @iaddress
+50  250
+1   39    //load acc        //05 print
+5   0     //print
+50  250
+3   38    //loadi @address  //08 loadprog
+10  35    //add base
+2   33    //store iaddress
+8   33    //loadprog
+50  250
+3   38    //loadi @address  //10 add
+10  39    //add acc
+2   39    //store acc
+50  250
+3   38    //loadi @address  //11 sub
+2   34    //store temp
+1   39    //load acc
+11  34    //sub temp
+2   39    //store acc
+50  250
+3   38    //loadi @address  //12 mul
+12  39    //mul acc
+2   39    //store acc
+50  250
+3   38    //loadi @address  //20 and
+20  39    //and acc
+2   39    //store acc
+50  250
+3   38    //loadi @address  //25 shtfr
+2   34    //store temp
+1   39    //load acc
+25  34    //shftr temp
+2   39    //store acc
+50  250
+1   38    //load address    //50 jmp
+2   36    //store pc
+50  253
+1   39    //load acc        //62 cne
+62  0     //cne
+50  250
+1   36    //load pc
+10  5     //add 1
+2   36    //store pc
+50  250
+1   39    //load acc		//63 clt
+63  0     //clt
+50  250
+1   36    //load pc
+10  5     //add 1
+2   36    //store pc
+50  250
+1   39    //load acc        //65 cle
+65  0     //cle
+50  250
+1   36    //load pc
+10  5     //add 1
+2   36    //store pc
+50  250
+0   0     //halt            //stop
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+50  250
+1   36    //load pc              //After switch
+10  5     //add 1
+2   36    //store pc
+50  45    //jmp top of loop
+99  0
+50 10     //jmp 10                    //Program to count from 0 to 9
+00  0     //count = 0                 count = 1;
+00 10     //constant: 10              while(count < 10) {
+00  1     //constant: 1                   System.out.println(count)
+00 00                                     count += 1;
+00 00                                 }
+00 00
+00 00
+00 00
+01  2     //load count  //count = 0
+11  3     //sub  10
+63  0     //clt
+00 00     //halt        //halt if above not true
+01  2     //load count
+05 00     //print
+10  4     //add  1      //count += 1;
+02  2     //store count
+50 11     //jmp  10     //to top of loop

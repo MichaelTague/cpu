@@ -1,0 +1,16 @@
+50 10     //jmp 10                    //Program to count from 0 to 9
+00  1     //count = 1                 count = 1;
+00 10     //constant: 10              while(count < 10) {
+00  1     //constant: 1                   System.out.println(count)
+00 00                                     count += 1;
+00 00                                 }
+00 00
+00 00
+00 00
+01  2     //load count  //count = 0
+44  3     //le   10     //count < 0
+00 00     //halt        //halt if above not true
+05 00     //print
+10  4     //add  1      //count += 1;
+50 11     //jmp  11     //to top of loop
+99 0

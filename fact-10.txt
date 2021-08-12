@@ -1,0 +1,20 @@
+50  10    //jmp 10                                   //Program Factorial
+0   12    //constant: 12                             int fact = 1;
+0   1     //constant: 1                              for(int i = 1; i <= 12; i++) {
+0   1     //fact = 1                                     fact *= i;
+0   1     //i = 1                                        System.out.println(fact);
+0   0     //                                         }
+0   0     //
+0   0     //
+0   0     //
+1   5     //load i            //i < 12
+44  2     //le   constant 12
+0   0     //halt              //halt if above not true
+12  4     //mul  fact         //fact = i * fact
+2   4     //store fact
+5   0     //print             //print fact
+1   5     //load i            //i += 1
+10  3     //add constant 1
+2   5     //store i
+50  10    //jump to 11        //end of loop
+99  0
