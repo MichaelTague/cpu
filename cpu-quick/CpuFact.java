@@ -1,4 +1,4 @@
-class CpuFib {
+class CpuFact {
     public static void main(String [] args) {
         int[] mem = new int[30];
 
